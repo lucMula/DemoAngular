@@ -15,4 +15,8 @@ export class LibriService{
     add(l:Libro){
         this.libri.push(l);
     }
+    find(stringaRicerca: string): Libro[] {
+        if(stringaRicerca=='') return this.getAll();
+        return this.libri.filter(l=>l.titolo.includes(stringaRicerca)||l.autore.includes(stringaRicerca))
+      }
 }
