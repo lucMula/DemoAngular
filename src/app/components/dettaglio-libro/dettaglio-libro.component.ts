@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Libro } from 'src/app/model/libro';
 import { LibriService } from 'src/app/services/libri.service';
 
@@ -11,9 +11,12 @@ import { LibriService } from 'src/app/services/libri.service';
 export class DettaglioLibroComponent {
   id:number=0;
   libro?:Libro;
-  constructor(private routeService:ActivatedRoute, private libriService:LibriService){
+  constructor(private routeService:ActivatedRoute, private libriService:LibriService,private router2:Router){
     //accede al pramentro che si chiama 'id'
     this.id=+this.routeService.snapshot.params['id'];//+ converte in numero
     if(!isNaN(this.id)) this.libro=libriService.getOne(this.id);
+  }
+  back(){
+      this.router2.navigate([''])
   }
 }

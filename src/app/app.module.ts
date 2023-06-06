@@ -13,10 +13,11 @@ import { ElencoLibriComponent } from './components/elenco-libri/elenco-libri.com
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DettaglioLibroComponent } from './components/dettaglio-libro/dettaglio-libro.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({//nomi classi
   declarations: [
-    AppComponent, FooterComponent, LibroComponent,TroncaPipe, RicercaComponent, ElencoLibriComponent, AboutComponent, NotFoundComponent, DettaglioLibroComponent
+    AppComponent, FooterComponent, LibroComponent,TroncaPipe, RicercaComponent, ElencoLibriComponent, AboutComponent, NotFoundComponent, DettaglioLibroComponent, HeaderComponent
   ],
   imports: [
     BrowserModule,
