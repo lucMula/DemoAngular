@@ -1,11 +1,13 @@
 <div class="border border-primary m-2 p-3 d-flex flex-column">
     <ng-container *ngIf="libro; else elseBlock">
-        <img class="w-25" [src]="'../../../assets/images/'+ libro?.copertina">
+        <a [routerLink]="['/libro',libro.id]"><!--relativo al iurl corrente senza !-->
+            <img class="w-25" [src]="'../../../assets/images/'+ libro.copertina">
+        </a>
         <h2>{{libro.titolo | tronca}}</h2>
         <h3>{{libro.autore | tronca:10}}</h3>
         <h4 class="align-self-end">{{libro.prezzo}} €</h4>
         <div ><span [class]="libro.preferito ? 'bi bi-heart-fill':'bi bi-heart'" (click)="modificaPreferito()"></span></div>
-        <!--<div><i [class.bi,class.bi-heart-fill]="libro.preferito" [class.bi,class.bi-heart]="!libro.preferito" (click)="modificaPreferito()"></i></div>-->
+        <button class="btn btn-primary" (click)="dettaglio()">Dettaglio libro</button>
     </ng-container>
     <ng-template #elseBlock>Libro non valido</ng-template>
     </div>

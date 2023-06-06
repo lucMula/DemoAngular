@@ -11,11 +11,9 @@ import { LibriService } from 'src/app/services/libri.service';
 export class DettaglioLibroComponent {
   id:number=0;
   libro?:Libro;
-  libriS=new LibriService;
-  constructor(private routeService:ActivatedRoute){
+  constructor(private routeService:ActivatedRoute, private libriService:LibriService){
     //accede al pramentro che si chiama 'id'
-    
-    this.id=this.routeService.snapshot.params['id'];
-    this.libro= this.libriS.findId(this.id);
+    this.id=+this.routeService.snapshot.params['id'];//+ converte in numero
+    if(!isNaN(this.id)) this.libro=libriService.getOne(this.id);
   }
 }

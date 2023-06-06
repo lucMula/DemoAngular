@@ -24,13 +24,16 @@ export class LibriService{
         if(stringaRicerca=='') return this.getAll();
         return this.librilower.filter(l=>l.titolo.includes(stringaRicerca.toLowerCase( ))||l.autore.includes(stringaRicerca.toLowerCase( )))
       }
-    findId(id1:number): Libro | undefined{
+    /*findId(id1:number): Libro | undefined{
         for(let i =0;i<this.libri.length;i++){
             if(id1==this.libri[i].id){
                 return this.libri[i]
-                
+
             }
         }
         return undefined
+    }*/
+    getOne(id:number): Libro | undefined{
+        return this.libri.find(l => l.id==id)
     }
 }
