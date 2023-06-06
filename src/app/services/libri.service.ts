@@ -1,29 +1,30 @@
 import { Injectable } from "@angular/core"
 import { Libro } from "../model/libro"
 @Injectable()
-export class LibriService{
-    private libri: Libro[]=[
-        new Libro(1,'I promessi sposi','Alessandro Manzoni',20,"promessisposi.png"),
-        new Libro(2,'La divina commedia','Dante Alighieri', 12,"divinacommedia.png")
+export class LibriService {
+    private libri: Libro[] = [
+        new Libro(1, 'I promessi sposi', 'Alessandro Manzoni', 20, "promessisposi.png"),
+        new Libro(2, 'La divina commedia', 'Dante Alighieri', 12, "divinacommedia.png")
     ]
-    public librilower: Libro[]=this.libri;
-    getAll():Libro[]{
+    getAll(): Libro[] {
         return this.libri
     }
-    getRandom(): Libro{
+    getRandom(): Libro {
         return this.libri[0];
     }
-    add(l:Libro){
+    add(l: Libro) {
         this.libri.push(l);
     }
     find(stringaRicerca: string): Libro[] {
-        for(let i = 0; i<(this.librilower).length;i++){
-            this.librilower[i].titolo=(this.librilower[i].titolo).toLowerCase();
-            this.librilower[i].autore=(this.librilower[i].autore).toLowerCase();
-        }
-        if(stringaRicerca=='') return this.getAll();
-        return this.librilower.filter(l=>l.titolo.includes(stringaRicerca.toLowerCase( ))||l.autore.includes(stringaRicerca.toLowerCase( )))
-      }
+        return this.libri.filter(libro => {
+            const nomeLibro = libro.titolo.toLowerCase();
+            const autoreLibro = libro.autore.toLowerCase();
+            const ricerca = stringaRicerca.toLowerCase();
+            return nomeLibro.includes(ricerca) || autoreLibro.includes(ricerca);
+        });
+
+    }
+
     /*findId(id1:number): Libro | undefined{
         for(let i =0;i<this.libri.length;i++){
             if(id1==this.libri[i].id){
@@ -33,7 +34,7 @@ export class LibriService{
         }
         return undefined
     }*/
-    getOne(id:number): Libro | undefined{
-        return this.libri.find(l => l.id==id)
+    getOne(id: number): Libro | undefined {
+        return this.libri.find(l => l.id == id)
     }
 }
