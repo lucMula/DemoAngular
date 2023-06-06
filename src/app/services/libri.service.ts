@@ -24,10 +24,11 @@ export class LibriService{
         if(stringaRicerca=='') return this.getAll();
         return this.librilower.filter(l=>l.titolo.includes(stringaRicerca.toLowerCase( ))||l.autore.includes(stringaRicerca.toLowerCase( )))
       }
-    findId(id1:number): any{
+    findId(id1:number): Libro | undefined{
         for(let i =0;i<this.libri.length;i++){
             if(id1==this.libri[i].id){
                 return this.libri[i]
+                
             }
         }
         return undefined
