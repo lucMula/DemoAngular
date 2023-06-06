@@ -14,6 +14,7 @@ import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DettaglioLibroComponent } from './components/dettaglio-libro/dettaglio-libro.component';
 import { HeaderComponent } from './components/header/header.component';
+import{ HttpClientModule} from '@angular/common/http'
 
 @NgModule({//nomi classi
   declarations: [
@@ -21,7 +22,7 @@ import { HeaderComponent } from './components/header/header.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule
+    AppRoutingModule,FormsModule,HttpClientModule
   ],
   providers: [LibriService],
   bootstrap: [AppComponent]

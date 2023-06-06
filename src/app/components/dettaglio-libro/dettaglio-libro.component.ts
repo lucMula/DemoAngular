@@ -14,7 +14,7 @@ export class DettaglioLibroComponent {
   constructor(private routeService:ActivatedRoute, private libriService:LibriService,private router2:Router){
     //accede al pramentro che si chiama 'id'
     this.id=+this.routeService.snapshot.params['id'];//+ converte in numero
-    if(!isNaN(this.id)) this.libro=libriService.getOne(this.id);
+    if(!isNaN(this.id)) libriService.getOne(this.id).subscribe(r=>this.libro=r);
   }
   back(){
       this.router2.navigate([''])
