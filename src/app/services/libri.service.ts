@@ -3,8 +3,8 @@ import { Libro } from "../model/libro"
 @Injectable()
 export class LibriService{
     private libri: Libro[]=[
-        new Libro('I promessi sposi','Alessandro Manzoni',20,"promessisposi.png"),
-        new Libro('La divina commedia','Dante Alighieri', 12,"divinacommedia.png")
+        new Libro(1,'I promessi sposi','Alessandro Manzoni',20,"promessisposi.png"),
+        new Libro(2,'La divina commedia','Dante Alighieri', 12,"divinacommedia.png")
     ]
     public librilower: Libro[]=this.libri;
     getAll():Libro[]{
@@ -24,4 +24,12 @@ export class LibriService{
         if(stringaRicerca=='') return this.getAll();
         return this.librilower.filter(l=>l.titolo.includes(stringaRicerca.toLowerCase( ))||l.autore.includes(stringaRicerca.toLowerCase( )))
       }
+    findId(id1:number): any{
+        for(let i =0;i<this.libri.length;i++){
+            if(id1==this.libri[i].id){
+                return this.libri[i]
+            }
+        }
+        return undefined
+    }
 }

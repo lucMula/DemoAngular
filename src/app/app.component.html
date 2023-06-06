@@ -1,12 +1,4 @@
-<h1>{{title}}</h1>
-<form class="form">
-    <input type="text" name="ricerca" [(ngModel)]="stringaRicerca">
-   <button class="btn btn-primary" (click)="cerca()">Cerca</button>
-   <button class="btn btn-secondary" (click)="pulisci()">Pulisci</button>
-</form>
-<ng-container *ngFor="let l of libri"> 
-    <app-libro [libro]="l"></app-libro>
-</ng-container>
-<ng-container *ngIf="libri.length==0"
->Nessun libro disponibile</ng-container>
-<app-footer></app-footer>
+<div class="container">
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+</div>

@@ -1,0 +1,21 @@
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Libro } from 'src/app/model/libro';
+import { LibriService } from 'src/app/services/libri.service';
+
+@Component({
+  selector: 'app-dettaglio-libro',
+  templateUrl: './dettaglio-libro.component.html',
+  styleUrls: ['./dettaglio-libro.component.css']
+})
+export class DettaglioLibroComponent {
+  id:number=0;
+  libro?:Libro;
+  libriS=new LibriService;
+  constructor(private routeService:ActivatedRoute){
+    //accede al pramentro che si chiama 'id'
+    
+    this.id=this.routeService.snapshot.params['id'];
+    this.libro= this.libriS.findId(this.id);
+  }
+}
