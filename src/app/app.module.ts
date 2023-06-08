@@ -14,11 +14,12 @@ import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DettaglioLibroComponent } from './components/dettaglio-libro/dettaglio-libro.component';
 import { HeaderComponent } from './components/header/header.component';
-import{ HttpClientModule} from '@angular/common/http'
+import{ HttpClientModule} from '@angular/common/http';
+import { InviaComponent } from './components/invia/invia.component'
 
 @NgModule({//nomi classi
   declarations: [
-    AppComponent, FooterComponent, LibroComponent,TroncaPipe, RicercaComponent, ElencoLibriComponent, AboutComponent, NotFoundComponent, DettaglioLibroComponent, HeaderComponent
+    AppComponent, FooterComponent, LibroComponent,TroncaPipe, RicercaComponent, ElencoLibriComponent, AboutComponent, NotFoundComponent, DettaglioLibroComponent, HeaderComponent, InviaComponent
   ],
   imports: [
     BrowserModule,
